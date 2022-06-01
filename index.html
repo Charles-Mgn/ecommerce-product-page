@@ -45,7 +45,7 @@
   <div id="product">
     <img src="images/image-product-1.jpg" alt="Product image 1" class="large-image">
     <ul>
-      <li><img src="images/image-product-1-thumbnail.jpg" alt="Product thumbnail 1" class="small-image active"></li>
+      <li class="active"><img src="images/image-product-1-thumbnail.jpg" alt="Product thumbnail 1" class="small-image"></li>
       <li><img src="images/image-product-2-thumbnail.jpg" alt="Product thumbnail 2" class="small-image"></li>
       <li><img src="images/image-product-3-thumbnail.jpg" alt="Product thumbnail 3" class="small-image"></li>
       <li><img src="images/image-product-4-thumbnail.jpg" alt="Product thumbnail 4" class="small-image"></li>
@@ -57,15 +57,17 @@
     <div class="product-name">Fall Limited Edition Sneakers</div>
     <p class="product-desc">These low-profile sneakers are your perfect casual wear companion. Featuring a
       durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
-    <div class="product-price">$125.00</div>
-    <div class="product-reduction">50%</div>
+    <div class="actual-price">
+      <div class="product-price">$125.00</div>
+      <div class="product-reduction">50%</div>
+    </div>
     <div class="product-original-price">$250.00</div>
 
     <div id="shopping">
       <div class="product-nb">
-        <img src="images/icon-minus.svg" class="minus-icon" alt="Minus">
+        <img src="images/icon-minus.svg" class="minus-icon" alt="Minus" onclick="minusCart()">
         <div class="count">0</div>
-        <img src="images/icon-plus.svg" class="plus-icon" alt="Plus">
+        <img src="images/icon-plus.svg" class="plus-icon" alt="Plus" onclick="plusCart()">
       </div>
 
       <div class="add-to-cart">
@@ -74,6 +76,27 @@
       </div>
     </div>
   </div>
+
+
+  <script>
+    // Selecting image
+    const thumbnails = document.querySelectorAll("#product ul li");
+
+
+    // Adding and subtracting from cart
+    const count = document.querySelector(".count");
+
+    minusCart = () => {
+      if (parseInt(count.innerHTML) > 0) {
+        count.innerHTML = parseInt(count.innerHTML) - 1;
+      }
+    }
+
+    plusCart = () => {
+      count.innerHTML = parseInt(count.innerHTML) + 1;
+    }
+
+  </script>
 
 
 </main>
