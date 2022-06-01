@@ -1,0 +1,94 @@
+:root {
+    /* COLORS */
+    --orange: hsl(26, 100%, 55%);
+    --plate-orange: hsl(25, 100%, 94%);
+
+    --very-vark-blue: hsl(220, 13%, 13%);
+    --dark-grayish-blue: hsl(219, 9%, 45%);
+    --grayish-blue: hsl(220, 14%, 75%);
+    --light-grayish-blue: hsl(223, 64%, 98%);
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%); /* with 75% opacity for lightbox background */
+
+
+    /* FONTS */
+    @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    width: 1440px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+h2 {
+    color: var(--orange);
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+nav, main, #shopping {
+    display: flex;
+}
+
+nav a, .product-desc {
+    color: var(--dark-grayish-blue);
+}
+
+nav {
+    height: 100px;
+    align-items: center;
+    align-content: space-evenly;
+}
+
+nav .cart-dark {
+    padding-bottom: 15px;
+}
+
+.avatar {
+    height: 50px;
+    margin-left: 30px;
+}
+
+.nav-links > * {
+    margin-left: 25px;
+}
+
+main {
+    align-items: center;
+}
+
+#product img {
+    border-radius: 15px;
+}
+
+#product > ul {
+    padding: 0;
+    margin-left: 35px;
+}
+
+.large-image {
+    width: 440px;
+    margin: 75px 100px 0 50px;
+}
+
+.small-image {
+    width: 85px;
+    margin: 15px;
+}
