@@ -9,10 +9,6 @@
     --light-grayish-blue: hsl(223, 64%, 98%);
     --white: hsl(0, 0%, 100%);
     --black: hsl(0, 0%, 0%); /* with 75% opacity for lightbox background */
-
-
-    /* FONTS */
-    @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 }
 
 
@@ -63,7 +59,7 @@ nav a, .product-desc {
 }
 
 nav {
-    height: 100px;
+    height: 125px;
     align-items: center;
     align-content: space-between;
 }
@@ -72,9 +68,19 @@ header .cart-dark {
     padding-bottom: 15px;
 }
 
+header .cart-dark:active {
+    filter: brightness(0);
+}
+
 .avatar {
     height: 50px;
     margin-left: 30px;
+    border: 2px solid white;
+}
+
+.avatar:active {
+    border-radius: 50px;
+    border: 2px solid var(--orange);
 }
 
 .nav-links > * {
@@ -88,7 +94,7 @@ header .cart-dark {
 
 .nav-links a:hover {
     border-bottom: 4px solid var(--orange);
-    padding-bottom: 39px;
+    padding-bottom: 49px;
     color: black;
 }
 
@@ -102,17 +108,28 @@ header .cart-dark {
 
 #product > ul {
     padding: 0;
-    margin-left: 35px;
+    margin-left: 32px;
 }
 
 .large-image {
-    width: 440px;
-    margin: 75px 100px 0 50px;
+    max-width: 525px;
+    margin: 110px 150px 0 50px;
 }
 
 .small-image {
-    width: 85px;
-    margin: 15px;
+    max-width: 105px;
+    margin: 14px;
+    border: solid 2px white;
+    cursor: pointer;
+}
+
+.small-image:hover {
+    opacity: .5;
+}
+
+.small-image.active {
+    opacity: .5;
+    border: solid 2px var(--orange);
 }
 
 
@@ -179,6 +196,18 @@ header .cart-dark {
     font-weight: 700;
 }
 
+.plus-icon, .minus-icon, .add-to-cart {
+    cursor: pointer;
+}
+
+.plus-icon, .minus-icon {
+    padding: 18px;
+}
+
+.plus-icon:active, .minus-icon:active {
+    opacity: .6;
+}
+
 .add-to-cart {
     color: white;
     background-color: var(--orange);
@@ -191,8 +220,12 @@ header .cart-dark {
     box-shadow: var(--plate-orange) 0 30px 25px -4px;
 }
 
+.add-to-cart:active {
+    opacity: .6;
+}
+
 .cart-light {
-    stroke: white;
+    filter: brightness(0) invert(1);
     height: 20px;
     margin-right: 20px;
 }
