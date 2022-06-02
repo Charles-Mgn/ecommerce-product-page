@@ -135,6 +135,7 @@ header .cart-dark:active {
 
 #product li {
     margin: 14px;
+    background-color: white;
     border: solid 2px white;
     height: 105px;
     width: 105px;
@@ -287,7 +288,7 @@ header .cart-dark:active {
 #lightbox .main-image {
     position: relative;
     width: 600px;
-    margin: 50px auto 0;
+    margin: 5% auto 0;
 }
 
 #lightbox .close {
@@ -300,12 +301,12 @@ header .cart-dark:active {
     filter: brightness(0) invert(1);
 }
 
-.prev, .next {
+#lightbox .prev, #lightbox .next {
     position: absolute;
     top: 250px;
     cursor: pointer;
     padding: 15px;
-    border-radius: 50% !important;
+    border-radius: 50%;
     background-color: white;
 }
 
@@ -319,4 +320,10 @@ header .cart-dark:active {
 
 #lightbox .close:hover, .prev:hover, .next:hover {
     filter: grayscale(100%) brightness(80%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+}
+
+#lightbox li {
+    background-color: white;
+    border-radius: 16px;
+    height: 105px;
 }

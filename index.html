@@ -16,7 +16,6 @@
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
 
@@ -48,28 +47,28 @@
     <img src="images/image-product-3.jpg" alt="Product image 3" data-label="image3" class="large-image">
     <img src="images/image-product-4.jpg" alt="Product image 4" data-label="image4" class="large-image">
     <ul>
-      <li class="active"><img src="images/image-product-1-thumbnail.jpg" alt="Product thumbnail 1" data-label="thumbnail1" class="small-image" onclick="changeMainImage(1)"></li>
-      <li class=""><img src="images/image-product-2-thumbnail.jpg" alt="Product thumbnail 2" data-label="thumbnail2" class="small-image" onclick="changeMainImage(2)"></li>
-      <li class=""><img src="images/image-product-3-thumbnail.jpg" alt="Product thumbnail 3" data-label="thumbnail3" class="small-image" onclick="changeMainImage(3)"></li>
-      <li class=""><img src="images/image-product-4-thumbnail.jpg" alt="Product thumbnail 4" data-label="thumbnail4" class="small-image" onclick="changeMainImage(4)"></li>
+      <li class="active"><img src="images/image-product-1-thumbnail.jpg" alt="Product thumbnail 1" data-label="thumbnail1" class="small-image" onclick="changeMainProduct(1)"></li>
+      <li class=""><img src="images/image-product-2-thumbnail.jpg" alt="Product thumbnail 2" data-label="thumbnail2" class="small-image" onclick="changeMainProduct(2)"></li>
+      <li class=""><img src="images/image-product-3-thumbnail.jpg" alt="Product thumbnail 3" data-label="thumbnail3" class="small-image" onclick="changeMainProduct(3)"></li>
+      <li class=""><img src="images/image-product-4-thumbnail.jpg" alt="Product thumbnail 4" data-label="thumbnail4" class="small-image" onclick="changeMainProduct(4)"></li>
     </ul>
   </div>
 
   <div id="lightbox">
     <div class="main-image">
       <img class="close" src="images/icon-close.svg" alt="Close icon">
-      <img class="prev" src="images/icon-previous.svg" alt="Previous icon">
+      <img class="prev" src="images/icon-previous.svg" alt="Previous icon" onclick="switchImage(-1)">
       <img src="images/image-product-1.jpg" alt="Product image 1" data-label="image1" class="large-image selected">
-      <img class="next" src="images/icon-next.svg" alt="Next icon">
+      <img src="images/image-product-2.jpg" alt="Product image 2" data-label="image2" class="large-image">
+      <img src="images/image-product-3.jpg" alt="Product image 3" data-label="image3" class="large-image">
+      <img src="images/image-product-4.jpg" alt="Product image 4" data-label="image4" class="large-image">
+      <img class="next" src="images/icon-next.svg" alt="Next icon" onclick="switchImage(1)">
     </div>
-    <img src="images/image-product-2.jpg" alt="Product image 2" data-label="image2" class="large-image">
-    <img src="images/image-product-3.jpg" alt="Product image 3" data-label="image3" class="large-image">
-    <img src="images/image-product-4.jpg" alt="Product image 4" data-label="image4" class="large-image">
     <ul>
-      <li class="active"><img src="images/image-product-1-thumbnail.jpg" alt="Product thumbnail 1" data-label="thumbnail1" class="small-image" onclick="changeMainImage(1)"></li>
-      <li class=""><img src="images/image-product-2-thumbnail.jpg" alt="Product thumbnail 2" data-label="thumbnail2" class="small-image" onclick="changeMainImage(2)"></li>
-      <li class=""><img src="images/image-product-3-thumbnail.jpg" alt="Product thumbnail 3" data-label="thumbnail3" class="small-image" onclick="changeMainImage(3)"></li>
-      <li class=""><img src="images/image-product-4-thumbnail.jpg" alt="Product thumbnail 4" data-label="thumbnail4" class="small-image" onclick="changeMainImage(4)"></li>
+      <li class="active"><img src="images/image-product-1-thumbnail.jpg" alt="Product thumbnail 1" data-label="thumbnail1" class="small-image" onclick="changeMainLightbox(1)"></li>
+      <li class=""><img src="images/image-product-2-thumbnail.jpg" alt="Product thumbnail 2" data-label="thumbnail2" class="small-image" onclick="changeMainLightbox(2)"></li>
+      <li class=""><img src="images/image-product-3-thumbnail.jpg" alt="Product thumbnail 3" data-label="thumbnail3" class="small-image" onclick="changeMainLightbox(3)"></li>
+      <li class=""><img src="images/image-product-4-thumbnail.jpg" alt="Product thumbnail 4" data-label="thumbnail4" class="small-image" onclick="changeMainLightbox(4)"></li>
     </ul>
   </div>
 
@@ -101,17 +100,26 @@
 
   <script>
     // Change main image
-    changeMainImage = (n) => {
-      let currentMainImage = document.querySelector(".large-image.selected");
-      let newMainImage = document.querySelector("[data-label=image" + CSS.escape(n) + "]");
-
+    changeMainProduct = (n) => {
+      let currentMainImage = document.querySelector("#product .large-image.selected");
+      let newMainImage = document.querySelector("#product [data-label=image" + CSS.escape(n) + "]");
       currentMainImage.classList.remove("selected");
       newMainImage.classList.add("selected");
 
+      let currentThumbnail = document.querySelector("#product .active .small-image");
+      let newThumbnail = document.querySelector("#product [data-label=thumbnail" + CSS.escape(n) + "]");
+      currentThumbnail.closest("li").classList.remove("active");
+      newThumbnail.closest("li").classList.add("active");
+    }
 
-      let currentThumbnail = document.querySelector(".active .small-image");
-      let newThumbnail = document.querySelector("[data-label=thumbnail" + CSS.escape(n) + "]");
+    changeMainLightbox = (n) => {
+      let currentMainImage = document.querySelector("#lightbox .large-image.selected");
+      let newMainImage = document.querySelector("#lightbox [data-label=image" + CSS.escape(n) + "]");
+      currentMainImage.classList.remove("selected");
+      newMainImage.classList.add("selected");
 
+      let currentThumbnail = document.querySelector("#lightbox .active .small-image");
+      let newThumbnail = document.querySelector("#lightbox [data-label=thumbnail" + CSS.escape(n) + "]");
       currentThumbnail.closest("li").classList.remove("active");
       newThumbnail.closest("li").classList.add("active");
     }
@@ -119,7 +127,7 @@
 
     // Lightbox
     const lightbox = document.querySelector("#lightbox");
-    const mainImage = document.querySelector(".large-image.selected");
+    const mainImage = document.querySelector("#product .large-image.selected");
     const closeIcon = document.querySelector(".close");
 
     // Open lightbox
@@ -127,10 +135,25 @@
       lightbox.style.display = "block";
     });
 
-    // Close lightbox
+    // Lightbox controls
     closeIcon.addEventListener('click', () => {
       lightbox.style.display = "none";
-    })
+    });
+
+    // Switching images with the arrows
+    let imageIndex = 1;
+    switchImage = (n) => {
+      imageIndex += n;
+      if (imageIndex >= 1 && imageIndex <= 4) {
+        changeMainLightbox(imageIndex);
+      } else if (imageIndex === 0) {
+        changeMainLightbox(4)
+        return imageIndex = 4;
+      } else {
+        changeMainLightbox(1)
+        return imageIndex = 1;
+      }
+    }
 
 
 
