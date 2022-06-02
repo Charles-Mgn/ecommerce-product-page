@@ -34,10 +34,29 @@
     </ul>
   </nav>
 
-    <div>
-      <a href="#"><img src="images/icon-cart.svg" class="cart-dark" alt="Cart icon"></a>
-      <a href="#"><img src="images/image-avatar.png" class="avatar" alt="Avatar"></a>
+  <div id="profile">
+    <div id="cart" class="hidden">
+      <div class="cart-header">Cart</div>
+      <div class="cart-content empty">Your cart is empty.</div>
+      <div class="cart-content full">
+        <div class="checkout-row">
+          <img class="checkout-col" src="images/image-product-1-thumbnail.jpg" alt="Product thumbnail"
+                style="width: 50px; border-radius: 30px">
+          <div class="checkout-col">
+            <div class="checkout-product-name">Fall Limited Edition Sneakers</div>
+            <div class="checkout-product-price">$125.00 x </div>
+            <span class="nb-product-checkout"></span>
+            <span class="sum-checkout"></span>
+          </div>
+          <img class="checkout-col delete-icon" src="images/icon-delete.svg" alt="Delete icon">
+        </div>
+        <div class="checkout-button">Checkout</div>
+      </div>
     </div>
+    <a href="#"><img src="images/icon-cart.svg" class="cart-dark" alt="Cart icon" onclick="showCart()"></a>
+    <span class="nb-product-cart"></span>
+    <a href="#"><img src="images/image-avatar.png" class="avatar" alt="Avatar"></a>
+  </div>
 </header>
 
 <main>
@@ -156,10 +175,8 @@
     }
 
 
-
-    // Adding and subtracting from cart
+    // Adding and subtracting from counter
     const count = document.querySelector(".count");
-
     minusCart = () => {
       if (parseInt(count.innerHTML) > 0) {
         count.innerHTML = parseInt(count.innerHTML) - 1;
@@ -169,6 +186,39 @@
     plusCart = () => {
       count.innerHTML = parseInt(count.innerHTML) + 1;
     }
+
+    // Showing cart
+    const cart = document.querySelector("#cart");
+    showCart = () => {
+      cart.classList.toggle('hidden');
+    }
+
+    // Deleting cart product
+    const emptyCart = document.querySelector(".empty");
+    const fullCart = document.querySelector(".full");
+    const deleteIcon = document.querySelector(".delete-icon");
+    const productsInCart = document.querySelector(".nb-product-cart"); // <-- small text above the cart icon, showing how many products are in the cart
+
+    deleteIcon.addEventListener('click', () => {
+      emptyCart.style.display = "block";
+      fullCart.style.display = "none";
+      productsInCart.innerHTML = "";
+    });
+
+    // Adding cart product
+    const addToCart = document.querySelector(".add-to-cart");
+    const nbCounter = document.querySelector(".count");
+    const nbCheckout = document.querySelector(".nb-product-checkout");
+    const sumCheckout = document.querySelector(".sum-checkout");
+
+    addToCart.addEventListener('click', () => {
+      if (parseInt(nbCounter.innerHTML) > 0) {
+        emptyCart.style.display = "none";
+        fullCart.style.display = "block";
+        nbCheckout.innerHTML = productsInCart.innerHTML = nbCounter.innerHTML;
+        sumCheckout.innerHTML = "$" + (parseFloat(nbCheckout.innerHTML) * 125).toFixed(2);
+      }
+    })
 
   </script>
 

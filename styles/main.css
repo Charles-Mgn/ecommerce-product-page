@@ -68,10 +68,6 @@ nav {
     align-content: space-between;
 }
 
-header .cart-dark {
-    padding-bottom: 15px;
-}
-
 header .cart-dark:active {
     filter: brightness(0);
 }
@@ -134,7 +130,7 @@ header .cart-dark:active {
 }
 
 #product li {
-    margin: 14px;
+    margin: 16px;
     background-color: white;
     height: 105px;
     width: 105px;
@@ -222,7 +218,7 @@ header .cart-dark:active {
     font-weight: 700;
 }
 
-.plus-icon, .minus-icon, .add-to-cart {
+.plus-icon, .minus-icon, .add-to-cart, .checkout-button, .delete-icon {
     cursor: pointer;
 }
 
@@ -325,4 +321,98 @@ header .cart-dark:active {
     background-color: white;
     border-radius: 16px;
     height: 105px;
+}
+
+
+/* CART */
+#profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#cart {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 75px;
+    width: 360px;
+    height: 250px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    border-radius: 10px;
+}
+
+#cart.hidden {
+    display: none;
+}
+
+.cart-header {
+    padding: 25px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--grayish-blue);
+}
+
+.cart-content.full {
+    display: none;
+    font-size: 14px;
+}
+
+.checkout-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-content.full img {
+    padding: 25px;
+}
+
+.delete-icon {
+    height: 20px;
+}
+
+.checkout-product-name {
+    margin-bottom: 10px;
+}
+
+.checkout-product-price, .nb-product-checkout, .sum-checkout {
+    display: inline;
+}
+
+.sum-checkout {
+    font-weight: 700;
+}
+
+.checkout-button {
+    padding: 20px 70px;
+    margin: 0 20px;
+    color: white;
+    background-color: var(--orange);
+    font-weight: 700;
+    width: 180px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.cart-content.empty {
+    display: block;
+    font-weight: 700;
+    color: var(--dark-grayish-blue);
+    padding: 70px;
+    text-align: center;
+}
+
+.nb-product-cart {
+    background-color: var(--orange);
+    color: white;
+    font-size: 12px;
+    padding: 0 7px;
+    text-align: center;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
