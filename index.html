@@ -43,13 +43,60 @@
 
 <main>
   <div id="product">
-    <img src="images/image-product-1.jpg" alt="Product image 1" class="large-image">
+    <img src="images/image-product-1.jpg" alt="Product image 1" data-label="image1" class="large-image selected">
+    <img src="images/image-product-2.jpg" alt="Product image 2" data-label="image2" class="large-image">
+    <img src="images/image-product-3.jpg" alt="Product image 3" data-label="image3" class="large-image">
+    <img src="images/image-product-4.jpg" alt="Product image 4" data-label="image4" class="large-image">
     <ul>
-      <li class="active"><img src="images/image-product-1-thumbnail.jpg" alt="Product thumbnail 1" class="small-image"></li>
-      <li><img src="images/image-product-2-thumbnail.jpg" alt="Product thumbnail 2" class="small-image"></li>
-      <li><img src="images/image-product-3-thumbnail.jpg" alt="Product thumbnail 3" class="small-image"></li>
-      <li><img src="images/image-product-4-thumbnail.jpg" alt="Product thumbnail 4" class="small-image"></li>
+      <li class="active"><img src="images/image-product-1-thumbnail.jpg" alt="Product thumbnail 1" data-label="thumbnail1" class="small-image" onclick="changeMainImage(1)"></li>
+      <li class=""><img src="images/image-product-2-thumbnail.jpg" alt="Product thumbnail 2" data-label="thumbnail2" class="small-image" onclick="changeMainImage(2)"></li>
+      <li class=""><img src="images/image-product-3-thumbnail.jpg" alt="Product thumbnail 3" data-label="thumbnail3" class="small-image" onclick="changeMainImage(3)"></li>
+      <li class=""><img src="images/image-product-4-thumbnail.jpg" alt="Product thumbnail 4" data-label="thumbnail4" class="small-image" onclick="changeMainImage(4)"></li>
     </ul>
+  </div>
+
+  <div id="lightbox" class="lightbox">
+    <img src="images/icon-close.svg" class="close" onclick="closeLightbox()" alt="Close">
+
+    <div class="lightbox-content">
+
+      <div class="mySlides">
+        <img src="img1_wide.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <img src="img2_wide.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <img src="img3_wide.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <img src="img4_wide.jpg" style="width:100%">
+      </div>
+
+      <!-- Next/previous controls -->
+      <img src="images/icon-previous.svg" class="prev" onclick="plusSlides(-1)" alt="Previous">
+      <img src="images/icon-next.svg" class="next" onclick="plusSlides(1)" alt="Next">
+
+      <!-- Thumbnail image controls -->
+      <div class="column">
+        <img class="demo" src="img1.jpg" onclick="currentSlide(1)" alt="Product thumbnail 1">
+      </div>
+
+      <div class="column">
+        <img class="demo" src="img2.jpg" onclick="currentSlide(2)" alt="Product thumbnail 2">
+      </div>
+
+      <div class="column">
+        <img class="demo" src="img3.jpg" onclick="currentSlide(3)" alt="Product thumbnail 3">
+      </div>
+
+      <div class="column">
+        <img class="demo" src="img4.jpg" onclick="currentSlide(4)" alt="Product thumbnail 4">
+      </div>
+    </div>
   </div>
 
   <div id="desc">
@@ -79,8 +126,21 @@
 
 
   <script>
-    // Selecting image
-    const thumbnails = document.querySelectorAll("#product ul li");
+    // Change main image
+    changeMainImage = (n) => {
+      let currentMainImage = document.querySelector(".large-image.selected");
+      let newMainImage = document.querySelector("[data-label=image" + CSS.escape(n) + "]");
+
+      currentMainImage.classList.remove("selected");
+      newMainImage.classList.add("selected");
+
+
+      let currentThumbnail = document.querySelector(".active .small-image");
+      let newThumbnail = document.querySelector("[data-label=thumbnail" + CSS.escape(n) + "]");
+
+      currentThumbnail.closest("li").classList.remove("active");
+      newThumbnail.closest("li").classList.add("active");
+    }
 
 
     // Adding and subtracting from cart
