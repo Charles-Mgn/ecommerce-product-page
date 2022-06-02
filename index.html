@@ -42,10 +42,10 @@
 
 <main>
   <div id="product">
-    <img src="images/image-product-1.jpg" alt="Product image 1" data-label="image1" class="large-image selected">
-    <img src="images/image-product-2.jpg" alt="Product image 2" data-label="image2" class="large-image">
-    <img src="images/image-product-3.jpg" alt="Product image 3" data-label="image3" class="large-image">
-    <img src="images/image-product-4.jpg" alt="Product image 4" data-label="image4" class="large-image">
+    <img src="images/image-product-1.jpg" alt="Product image 1" data-label="image1" class="large-image selected" onclick="showLightbox(1)">
+    <img src="images/image-product-2.jpg" alt="Product image 2" data-label="image2" class="large-image" onclick="showLightbox(2)">
+    <img src="images/image-product-3.jpg" alt="Product image 3" data-label="image3" class="large-image" onclick="showLightbox(3)">
+    <img src="images/image-product-4.jpg" alt="Product image 4" data-label="image4" class="large-image" onclick="showLightbox(4)">
     <ul>
       <li class="active"><img src="images/image-product-1-thumbnail.jpg" alt="Product thumbnail 1" data-label="thumbnail1" class="small-image" onclick="changeMainProduct(1)"></li>
       <li class=""><img src="images/image-product-2-thumbnail.jpg" alt="Product thumbnail 2" data-label="thumbnail2" class="small-image" onclick="changeMainProduct(2)"></li>
@@ -127,13 +127,13 @@
 
     // Lightbox
     const lightbox = document.querySelector("#lightbox");
-    const mainImage = document.querySelector("#product .large-image.selected");
     const closeIcon = document.querySelector(".close");
 
     // Open lightbox
-    mainImage.addEventListener('click', () => {
+    showLightbox = (n) => {
       lightbox.style.display = "block";
-    });
+      changeMainLightbox(n);
+    }
 
     // Lightbox controls
     closeIcon.addEventListener('click', () => {

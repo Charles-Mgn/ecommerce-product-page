@@ -93,7 +93,7 @@ header .cart-dark:active {
 
 .nav-links a {
     width: 50px;
-    padding: 0 10px;
+    padding: 50px 10px;
 }
 
 .nav-links a:hover {
@@ -136,7 +136,6 @@ header .cart-dark:active {
 #product li {
     margin: 14px;
     background-color: white;
-    border: solid 2px white;
     height: 105px;
     width: 105px;
     border-radius: 17px;
@@ -146,11 +145,11 @@ header .cart-dark:active {
     opacity: .5;
 }
 
-#product li.active {
-    border: solid 2px var(--orange);
+#product li.active, #lightbox li.active {
+    box-shadow: 0 0 0 3px var(--orange);
 }
 
-#product li.active .small-image {
+#product li.active .small-image, #lightbox li.active .small-image {
     opacity: .5;
 }
 
