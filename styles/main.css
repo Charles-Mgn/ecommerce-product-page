@@ -342,8 +342,8 @@ header .cart-dark:active {
     display: block;
     position: absolute;
     z-index: 1;
-    right: 0;
-    top: 75px;
+    right: 10px;
+    top: 110px;
     width: 360px;
     height: 250px;
     overflow: hidden;
@@ -403,7 +403,7 @@ header .cart-dark:active {
 
 .checkout-button {
     padding: 20px 70px;
-    margin: 0 20px;
+    margin: 0 auto;
     color: white;
     background-color: var(--orange);
     font-weight: 700;
