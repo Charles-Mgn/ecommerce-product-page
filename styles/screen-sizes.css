@@ -75,6 +75,7 @@
         position: relative;
         background-color: white;
         overflow: visible;
+        z-index: auto;
     }
 
     #lightbox .large-image {
@@ -106,6 +107,14 @@
         background-color: white;
     }
 
+    #lightbox .close:hover, .prev:hover, .next:hover {
+        filter: none;
+    }
+
+    #lightbox .close:active, .prev:active, .next:active {
+        filter: grayscale(100%) brightness(80%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+    }
+
     #lightbox img {
         border-radius: 0;
     }
@@ -131,5 +140,29 @@
 
     .add-to-cart {
         margin-bottom: 50px;
+    }
+
+    #cart {
+        width: 95vw;
+        height: 300px;
+        right: -10px;
+        top: 68px;
+    }
+
+    .nb-product-cart {
+        top: 3px;
+    }
+
+    .cart-header {
+        padding: 30px;
+    }
+
+    .cart-content.empty {
+        padding: 100px;
+    }
+
+    .cart-content.full, .checkout-button {
+        margin-top: 10px;
+        font-size: 15px;
     }
 }

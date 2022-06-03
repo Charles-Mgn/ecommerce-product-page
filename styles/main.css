@@ -252,6 +252,10 @@ header .cart-dark:active {
     margin-right: 20px;
 }
 
+.cart-dark {
+    filter: brightness(0);
+}
+
 
 /** LIGHTBOX **/
 
@@ -376,6 +380,14 @@ header .cart-dark:active {
 
 .checkout-product-name {
     margin-bottom: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 160px;
+    white-space: nowrap;
+}
+
+.checkout-product-name, .checkout-product-price, .nb-product-checkout {
+    color: var(--dark-grayish-blue)
 }
 
 .checkout-product-price, .nb-product-checkout, .sum-checkout {
