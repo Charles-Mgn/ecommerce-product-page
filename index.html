@@ -198,8 +198,10 @@
 
     // Showing cart
     const cart = document.querySelector("#cart");
+    const cartIcon = document.querySelector(".cart-dark");
     showCart = () => {
       cart.classList.toggle('hidden');
+      cartIcon.classList.toggle('open');
     }
 
     // Deleting cart product

@@ -255,7 +255,7 @@ header .cart-dark:active {
     margin-right: 20px;
 }
 
-.cart-dark {
+.cart-dark.open {
     filter: brightness(0);
 }
 
