@@ -164,21 +164,32 @@
         display: none;
     }
 
-    #lightbox .prev, #lightbox .next {
+    #lightbox .prev-container, #lightbox .next-container {
         position: absolute;
-        top: 175px;
+        top: 43vw;
         cursor: pointer;
-        padding: 15px;
         border-radius: 50%;
         background-color: white;
     }
 
-    #lightbox .close:hover, .prev:hover, .next:hover {
+    #lightbox .prev-container {
+        left: 15px;
+    }
+
+    #lightbox .next-container {
+        right: 15px;
+    }
+
+    #lightbox .prev, #lightbox .next {
+        padding: 15px;
+    }
+
+    .prev:hover, .next:hover {
         filter: none;
     }
 
-    #lightbox .close:active, .prev:active, .next:active {
-        filter: grayscale(100%) brightness(80%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+    .prev:active, .next:active {
+        filter: invert(60%) sepia(44%) saturate(3729%) hue-rotate(347deg) brightness(101%) contrast(101%);
     }
 
     #lightbox img {

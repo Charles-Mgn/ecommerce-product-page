@@ -305,25 +305,32 @@ header .cart-dark:active {
     filter: brightness(0) invert(1);
 }
 
-#lightbox .prev, #lightbox .next {
+.prev-container, .next-container {
     position: absolute;
-    top: 250px;
+    top: 225px;
     cursor: pointer;
-    padding: 15px;
     border-radius: 50%;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.prev {
-    left: 15px;
+.prev-container {
+    left: 11px;
 }
 
-.next {
-    right: 15px;
+.next-container {
+    right: 11px;
+}
+
+.prev, .next {
+    padding: 20px;
+    border-radius: 50%;
 }
 
 #lightbox .close:hover, .prev:hover, .next:hover {
-    filter: grayscale(100%) brightness(80%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8);
+    filter: invert(60%) sepia(44%) saturate(3729%) hue-rotate(347deg) brightness(101%) contrast(101%);
 }
 
 #lightbox li {
