@@ -98,6 +98,9 @@ header .cart-dark:active {
     color: black;
 }
 
+.menu-close, .menu-open {
+    display: none;
+}
 
 
 /* PRODUCT IMAGES */

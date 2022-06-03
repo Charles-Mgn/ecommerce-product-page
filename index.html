@@ -26,6 +26,9 @@
   <nav>
     <a href="" id="logo"><img src="images/logo.svg" alt="Logo sneakers"></a>
 
+    <img class="menu-open" src="images/icon-menu.svg" alt="Open menu" onclick="openMenu()">
+    <img class="menu-close" src="images/icon-close.svg" alt="Close menu" onclick="closeMenu()">
+
     <ul class="nav-links">
       <li><a href="#">Collections</a></li>
       <li><a href="#">Men</a></li>
@@ -33,6 +36,8 @@
       <li><a href="#">About</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
+
+    <div class="mobile-menu-bg"></div>
   </nav>
 
   <div id="profile">
@@ -222,6 +227,27 @@
         sumCheckout.innerHTML = "$" + (parseFloat(nbCheckout.innerHTML) * 125).toFixed(2);
       }
     })
+
+
+    // Open & close mobile menu
+    const openMenuIcon = document.querySelector(".menu-open");
+    const closeMenuIcon = document.querySelector(".menu-close");
+    const menu = document.querySelector(".nav-links");
+    const menuBg = document.querySelector(".mobile-menu-bg");
+
+    openMenu = () => {
+      openMenuIcon.style.display = "none";
+      closeMenuIcon.style.display = "block";
+      menu.style.display = "block";
+      menuBg.style.display = "block";
+    }
+
+    closeMenu = () => {
+      openMenuIcon.style.display = "block";
+      closeMenuIcon.style.display = "none";
+      menu.style.display = "none";
+      menuBg.style.display = "none";
+    }
 
   </script>
 
