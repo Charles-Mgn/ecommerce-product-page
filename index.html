@@ -224,8 +224,15 @@
       if (parseInt(nbCounter.innerHTML) > 0) {
         emptyCart.style.display = "none";
         fullCart.style.display = "block";
-        nbCheckout.innerHTML = productsInCart.innerHTML = nbCounter.innerHTML;
+
+        if (parseInt(nbCheckout.innerHTML) > 0) {
+          nbCheckout.innerHTML = productsInCart.innerHTML = parseInt(nbCounter.innerHTML) + parseInt(nbCheckout.innerHTML);
+        } else {
+          nbCheckout.innerHTML = productsInCart.innerHTML = nbCounter.innerHTML
+        }
+
         sumCheckout.innerHTML = "$" + (parseFloat(nbCheckout.innerHTML) * 125).toFixed(2);
+        nbCounter.innerHTML = "0";
       }
     })
 
