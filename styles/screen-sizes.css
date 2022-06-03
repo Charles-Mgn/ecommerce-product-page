@@ -1,0 +1,135 @@
+/* MEDIUM DESKTOP SCREEN SIZE */
+@media screen and (max-width: 1250px) {
+    .large-image {
+        margin: 110px 12vw 0 4vw;
+    }
+
+    #product ul {
+        margin-left: 3vw;
+    }
+
+    #shopping {
+        display: block;
+    }
+
+    .product-nb, .add-to-cart {
+        width: 300px;
+        height: 50px;
+        margin: 0 0 20px;
+        padding: 0;
+    }
+}
+
+/* SMALL DESKTOP SCREEN SIZE */
+@media screen and (max-width: 1070px) {
+    main {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #desc {
+        width: 600px;
+    }
+
+    .product-nb, .add-to-cart {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .nav-links {
+        padding-left: 2vw;
+    }
+
+    .nav-links > * {
+        margin-left: 1vw;
+    }
+}
+
+/* MOBILE & TABLET SCREEN */
+@media screen and (max-width: 770px) {
+    header {
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    nav {
+        height: 70px;
+    }
+
+    .avatar {
+        height: 35px;
+    }
+
+    #product {
+        display: none;
+    }
+
+    #lightbox {
+        display: block;
+        position: relative;
+        background-color: white;
+        overflow: visible;
+    }
+
+    #lightbox .large-image {
+        margin: 0;
+        width: 100vw;
+        cursor: default;
+    }
+
+    #lightbox ul {
+        display: none;
+    }
+
+    #lightbox .main-image {
+        position: relative;
+        width: 100vw;
+        margin: 0;
+    }
+
+    #lightbox .close {
+        display: none;
+    }
+
+    #lightbox .prev, #lightbox .next {
+        position: absolute;
+        top: 175px;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 50%;
+        background-color: white;
+    }
+
+    #lightbox img {
+        border-radius: 0;
+    }
+
+    .company-name {
+        margin: 30px 0;
+    }
+
+    .product-name {
+        font-size: 30px;
+    }
+
+    .prices {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+
+    .product-original-price {
+        margin: 0;
+    }
+
+    .add-to-cart {
+        margin-bottom: 50px;
+    }
+}
